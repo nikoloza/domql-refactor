@@ -8,10 +8,15 @@ export const DEFAULT_METHODS = {
   define: {},
 
   attr: {},
-  style: {},
+  style: (element, state) => {
+    DEFAULT_METHODS.class(element, state)
+  },
 
   content: {},
-  class: {},
+  class: (element, state) => {
+    const { ref, style } = element
+    ref.class = { style, ...element.class }
+  },
 
   props: {},
   state: {},
@@ -26,10 +31,8 @@ export const DEFAULT_METHODS = {
   extends: {},
   childExtends: {},
   text: (element, state) => {
-    element.ref.text = {
-      tag: 'text',
-      text: element.text
-    }
+    const { ref, text } = element
+    ref.text = { tag: 'text', text }
   },
 
   html: {},

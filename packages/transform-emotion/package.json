@@ -1,0 +1,11 @@
+{
+  "name": "@domql/transform-emotion",
+  "version": "2.0.6",
+  "main": "index.js",
+  "license": "MIT",
+  "gitHead": "50bbcf385b1164bb3f0c2eb7a4d7d1bc28ca7752",
+  "dependencies": {
+    "@domql/utils": "^2.0.6",
+    "@emotion/css": "^11.9.0"
+  }
+}

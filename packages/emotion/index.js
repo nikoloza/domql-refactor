@@ -6,7 +6,7 @@ import { classList } from '@domql/mixins'
 
 import { css } from '@emotion/css'
 
-const style = (params, element, node) => {
+export const style = (params, element, node) => {
   const execPareams = exec(params, element)
   if (params) {
     if (isObjectLike(element.class)) element.class.style = execPareams
@@ -15,7 +15,7 @@ const style = (params, element, node) => {
   classf(element.class, element, node)
 }
 
-const classf = (element, node) => {
+export const classf = (element, node) => {
   const params = element.class
   if (isObjectLike(params)) {
     const classObjHelper = {}

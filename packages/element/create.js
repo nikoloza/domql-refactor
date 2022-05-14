@@ -90,11 +90,11 @@ const onEachAvailable = (element, key, options) => {
 
 const onEach = (element, key, options) => {
   for (const key in element) {
-    const isMethod = DEFAULT_METHODS[key]
-    if (isMethod && isFunction(isMethod)) isMethod(element, element.ref.state)
+    const propMethod = DEFAULT_METHODS[key]
+    if (propMethod && isFunction(propMethod)) propMethod(element, element.ref.state)
     const hasDefine = element.define && element.define[key]
     if (hasDefine && isFunction(hasDefine)) element.ref[key] = hasDefine(element, element.ref.state)
-    if (!isMethod && !hasDefine) onEachAvailable(element, key, options)
+    if (!propMethod && !hasDefine) onEachAvailable(element, key, options)
   }
   return element
 }

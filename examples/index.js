@@ -5,7 +5,8 @@ import DOM from '../packages/domql'
 import header from './header'
 import footer from './footer'
 import Icon from './icon'
-import { transformReact } from '../packages/transform-react'
+import { transformClass, transformEmotion } from '../packages/transform-emotion'
+import { DOMQLReact, transformReact } from '../packages/transform-react'
 
 const icon = {
   proto: Icon,
@@ -56,10 +57,20 @@ const root = {
   footer
 }
 
-DOM.create(root, null, null, {
-  transform: { react: transformReact }
+const App = DOM.create(root, null, null, {
+  transform: {
+    emotion: transformEmotion,
+    class: transformClass,
+    react: transformReact
+  }
 })
 
+// DOMQLReact(root, null, null, {
+//   emotion: transformEmotion,
+//   class: transformClass
+// })
+
+console.log(App)
 
 // const later = performance.now()
 // console.log(later - now)

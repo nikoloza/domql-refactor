@@ -55,13 +55,13 @@ const renderReact = (element, key) => {
   return <React.StrictMode>{ deepCreate(react) }</React.StrictMode>
 }
 
-export const DOMQLReact = (component, props, state) => {
+export const DOMQLReact = (component, props, state, transforms) => {
   const element = create({
     extends: component,
     props,
     state
   }, null, null, {
-    transform: { react: transformReact }
+    transform: { ...transforms, react: transformReact }
   })
   const ReactElement = renderReact(element, element.key)
   return ReactElement
